@@ -25,6 +25,7 @@ type fsCommand struct {
 	paths flags.StringList
 	mount string
 	web   string
+	name  string
 }
 
 func (cmd *fsCommand) Synopsis() string { return "FS" }
@@ -38,6 +39,7 @@ func (cmd *fsCommand) Flags() *cmdy.FlagSet {
 	set := cmdy.NewFlagSet()
 	set.Var(&cmd.paths, "path", "Paths to scour (can pass multiple times)")
 	set.StringVar(&cmd.mount, "mount", "", "Mount point")
+	set.StringVar(&cmd.name, "name", "MuseFUSE", "Name")
 	set.StringVar(&cmd.web, "web", "localhost:60608", "42. Web server, lets you browse the metadata..")
 	return set
 }
@@ -140,7 +142,7 @@ func (cmd *fsCommand) Run(ctx cmdy.Context) error {
 		fuse.FSName("musefuse"),
 		fuse.Subtype("musefs"),
 		fuse.LocalVolume(),
-		fuse.VolumeName("Hello world!"),
+		fuse.VolumeName(cmd.name),
 	)
 	if err != nil {
 		return err

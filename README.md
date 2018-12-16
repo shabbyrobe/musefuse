@@ -12,9 +12,14 @@ docs are a bit pants).
 Unfortunately, now I have two messes - this prototype has been really useful,
 so now I have to clean up the code too!
 
+Prerequisites:
+
+- Go 1.11
+- [MacFUSE](https://github.com/osxfuse/osxfuse) if running on macOS
+
 To install:
 
-    go install -u github.com/shabbyrobe/musefuse/cmd/musefuse
+    go get -u github.com/shabbyrobe/musefuse/cmd/musefuse
 
 I've been using a mount point in `/media/$USER` because it shows up in
 Nautilus, YMMV:
