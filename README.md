@@ -17,19 +17,22 @@ Prerequisites:
 - Go 1.11
 - [MacFUSE](https://github.com/osxfuse/osxfuse) if running on macOS
 
-To install:
+To install on Ubuntu:
 
     go get -u github.com/shabbyrobe/musefuse/cmd/musefuse
 
 I've been using a mount point in `/media/$USER` because it shows up in
 Nautilus, YMMV:
 
-    sudo mkdir "/media/$USER/muse"
+    sudo mkdir -p "/media/$USER/muse"
     sudo chown "$USER:$USER" "/media/$USER/muse"
 
 Now mount the thing:
 
     musefuse fs -mount "/media/$USER/muse" -path ~/music/
+
+On macOS, I created the mountpoint in `/Volumes` and that worked with Finder
+no problem.
 
 Now you can explore!
 
@@ -61,3 +64,13 @@ Here's what I won't add:
   janky and I lost a lot of time that could've been better spent on the
   other list.
 
+
+Notes
+-----
+
+Generic libs:
+- https://godoc.org/github.com/wtolson/go-taglib (cgo)
+
+ID3:
+- https://github.com/bogem/id3v2
+- https://github.com/mikkyang/id3-go
