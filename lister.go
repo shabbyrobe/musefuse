@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/shabbyrobe/golib/pathtools"
-	"github.com/shabbyrobe/musefuse/fastwalk"
+	"github.com/shabbyrobe/musefuse/internal/fastwalk"
 )
 
 type FileInfo struct {
