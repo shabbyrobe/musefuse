@@ -27,6 +27,8 @@ const (
 	FilePlaylist FileKind = "playlist"
 )
 
+// Lister, if you touch that guitar, I'll remove the E-string and garotte you
+// with it.
 type Lister struct {
 	paths            []string
 	audioExtIndex    map[string]bool
@@ -50,6 +52,7 @@ func NewLister(paths []string, audioExts, playlistExts []string) *Lister {
 	}
 }
 
+// Lister, don't be a gimboid!
 var fileGarbagePattern = regexp.MustCompile(`(?i)[/\\].AppleDouble[/\\]`)
 
 func (lister *Lister) List(into []FileInfo) (files []FileInfo, err error) {

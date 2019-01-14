@@ -1,5 +1,5 @@
-MuseFUSE: Browse your music file's tags using the filesystem
-============================================================
+MuseFUSE: Browse your music by tag using the filesystem
+=======================================================
 
 This was a fun little Sunday hack to make a read-only FUSE filesystem for
 exploring tagged music files.
